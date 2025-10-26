@@ -2,18 +2,18 @@ window.marker = null;
 
 function initialize() {
     var map;
-    var latitude = $('#map').attr('data-latitude');
-    var longitude = $('#map').attr('data-longitude');
-    var mapMarker = $('#map').attr('data-marker');
-    var mapMarkerName = $('#map').attr('data-marker-name');
+    var latitude = $("#map").attr("data-latitude");
+    var longitude = $("#map").attr("data-longitude");
+    var mapMarker = $("#map").attr("data-marker");
+    var mapMarkerName = $("#map").attr("data-marker-name");
     var nottingham = new google.maps.LatLng(latitude, longitude);
     var style = [
         {
-            featureType: 'administrative.locality',
-            elementType: 'all',
+            featureType: "administrative.locality",
+            elementType: "all",
             stylers: [
                 {
-                    hue: '#2c2e33',
+                    hue: "#2c2e33",
                 },
                 {
                     saturation: 7,
@@ -22,37 +22,37 @@ function initialize() {
                     lightness: 19,
                 },
                 {
-                    visibility: 'on',
+                    visibility: "on",
                 },
             ],
         },
         {
-            featureType: 'administrative.locality',
-            elementType: 'labels.text',
+            featureType: "administrative.locality",
+            elementType: "labels.text",
             stylers: [
                 {
-                    visibility: 'on',
+                    visibility: "on",
                 },
                 {
-                    saturation: '-3',
-                },
-            ],
-        },
-        {
-            featureType: 'administrative.locality',
-            elementType: 'labels.text.fill',
-            stylers: [
-                {
-                    color: '#282a00',
+                    saturation: "-3",
                 },
             ],
         },
         {
-            featureType: 'landscape',
-            elementType: 'all',
+            featureType: "administrative.locality",
+            elementType: "labels.text.fill",
             stylers: [
                 {
-                    hue: '#ffffff',
+                    color: "#282a00",
+                },
+            ],
+        },
+        {
+            featureType: "landscape",
+            elementType: "all",
+            stylers: [
+                {
+                    hue: "#ffffff",
                 },
                 {
                     saturation: -100,
@@ -61,16 +61,16 @@ function initialize() {
                     lightness: 100,
                 },
                 {
-                    visibility: 'simplified',
+                    visibility: "simplified",
                 },
             ],
         },
         {
-            featureType: 'poi',
-            elementType: 'all',
+            featureType: "poi",
+            elementType: "all",
             stylers: [
                 {
-                    hue: '#ffffff',
+                    hue: "#ffffff",
                 },
                 {
                     saturation: -100,
@@ -79,61 +79,61 @@ function initialize() {
                     lightness: 100,
                 },
                 {
-                    visibility: 'off',
+                    visibility: "off",
                 },
             ],
         },
         {
-            featureType: 'poi.school',
-            elementType: 'geometry.fill',
+            featureType: "poi.school",
+            elementType: "geometry.fill",
             stylers: [
                 {
-                    color: '#f39247',
+                    color: "#f39247",
                 },
                 {
-                    saturation: '0',
+                    saturation: "0",
                 },
                 {
-                    visibility: 'on',
+                    visibility: "on",
                 },
             ],
         },
         {
-            featureType: 'road',
-            elementType: 'geometry',
+            featureType: "road",
+            elementType: "geometry",
             stylers: [
                 {
-                    hue: '#E94B3CFF',
+                    hue: "#89ABE3FF",
                 },
                 {
-                    saturation: '100',
+                    saturation: "100",
                 },
                 {
                     lightness: 31,
                 },
                 {
-                    visibility: 'simplified',
+                    visibility: "simplified",
                 },
             ],
         },
         {
-            featureType: 'road',
-            elementType: 'geometry.stroke',
+            featureType: "road",
+            elementType: "geometry.stroke",
             stylers: [
                 {
-                    color: '#E94B3CFF',
+                    color: "#89ABE3FF",
                 },
                 {
-                    saturation: '0',
+                    saturation: "0",
                 },
             ],
         },
         {
-            featureType: 'road',
-            elementType: 'labels',
+            featureType: "road",
+            elementType: "labels",
             stylers: [
                 {
-                    hue: '#008eff',
+                    hue: "#008eff",
                 },
                 {
                     saturation: -93,
@@ -142,31 +142,31 @@ function initialize() {
                     lightness: 31,
                 },
                 {
-                    visibility: 'on',
+                    visibility: "on",
                 },
             ],
         },
         {
-            featureType: 'road.arterial',
-            elementType: 'geometry.stroke',
+            featureType: "road.arterial",
+            elementType: "geometry.stroke",
             stylers: [
                 {
-                    visibility: 'on',
+                    visibility: "on",
                 },
                 {
-                    color: '#f3dbc8',
+                    color: "#f3dbc8",
                 },
                 {
-                    saturation: '0',
+                    saturation: "0",
                 },
             ],
         },
         {
-            featureType: 'road.arterial',
-            elementType: 'labels',
+            featureType: "road.arterial",
+            elementType: "labels",
             stylers: [
                 {
-                    hue: '#bbc0c4',
+                    hue: "#bbc0c4",
                 },
                 {
                     saturation: -93,
@@ -175,25 +175,25 @@ function initialize() {
                     lightness: -2,
                 },
                 {
-                    visibility: 'simplified',
+                    visibility: "simplified",
                 },
             ],
         },
         {
-            featureType: 'road.arterial',
-            elementType: 'labels.text',
+            featureType: "road.arterial",
+            elementType: "labels.text",
             stylers: [
                 {
-                    visibility: 'off',
+                    visibility: "off",
                 },
             ],
         },
         {
-            featureType: 'road.local',
-            elementType: 'geometry',
+            featureType: "road.local",
+            elementType: "geometry",
             stylers: [
                 {
-                    hue: '#e9ebed',
+                    hue: "#e9ebed",
                 },
                 {
                     saturation: -90,
@@ -202,16 +202,16 @@ function initialize() {
                     lightness: -8,
                 },
                 {
-                    visibility: 'simplified',
+                    visibility: "simplified",
                 },
             ],
         },
         {
-            featureType: 'transit',
-            elementType: 'all',
+            featureType: "transit",
+            elementType: "all",
             stylers: [
                 {
-                    hue: '#e9ebed',
+                    hue: "#e9ebed",
                 },
                 {
                     saturation: 10,
@@ -220,16 +220,16 @@ function initialize() {
                     lightness: 69,
                 },
                 {
-                    visibility: 'on',
+                    visibility: "on",
                 },
             ],
         },
         {
-            featureType: 'water',
-            elementType: 'all',
+            featureType: "water",
+            elementType: "all",
             stylers: [
                 {
-                    hue: '#e9ebed',
+                    hue: "#e9ebed",
                 },
                 {
                     saturation: -78,
@@ -238,7 +238,7 @@ function initialize() {
                     lightness: 67,
                 },
                 {
-                    visibility: 'simplified',
+                    visibility: "simplified",
                 },
             ],
         },
@@ -246,7 +246,7 @@ function initialize() {
     var mapOptions = {
         center: nottingham,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-        backgroundColor: '#000',
+        backgroundColor: "#000",
         zoom: 10,
         panControl: !1,
         zoomControl: !0,
@@ -258,19 +258,19 @@ function initialize() {
             style: google.maps.ZoomControlStyle.LARGE,
         },
     };
-    map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    map = new google.maps.Map(document.getElementById("map"), mapOptions);
     var mapType = new google.maps.StyledMapType(style, {
-        name: 'Grayscale',
+        name: "Grayscale",
     });
-    map.mapTypes.set('grey', mapType);
-    map.setMapTypeId('grey');
+    map.mapTypes.set("grey", mapType);
+    map.setMapTypeId("grey");
     var marker_image = mapMarker;
     var pinIcon = new google.maps.MarkerImage(
         marker_image,
         null,
         null,
         null,
-        new google.maps.Size(46, 40),
+        new google.maps.Size(46, 40)
     );
     marker = new google.maps.Marker({
         position: nottingham,
@@ -279,7 +279,7 @@ function initialize() {
         title: mapMarkerName,
     });
 }
-var map = document.getElementById('map');
+var map = document.getElementById("map");
 if (map != null) {
-    google.maps.event.addDomListener(window, 'load', initialize);
+    google.maps.event.addDomListener(window, "load", initialize);
 }
